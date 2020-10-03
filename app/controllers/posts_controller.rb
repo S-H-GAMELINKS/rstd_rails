@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  using Rstd::RefineArray
+
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+    @first_last = Post.first_last
   end
 
   # GET /posts/1
